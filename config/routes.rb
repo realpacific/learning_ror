@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :answers
+  resources :questions
+  root "home#index"
+  get '/about' => "home#about"
+  post '/questions/:question_id/answers' => "answers#create"
 end

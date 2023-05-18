@@ -36,3 +36,13 @@ Created using `rails new wikirails`
 * Migrations
 * Query Interface
 * Validations
+
+## Commands
+```shell
+rails g controller home index
+rails g model resource body:text
+rails g resource question body:text
+rails db:migrate
+rails console
+rails s
+```

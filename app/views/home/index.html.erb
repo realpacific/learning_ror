@@ -1,0 +1,12 @@
+<h1>Questions</h1>
+
+<% @questions.each do |question| %>
+  <li>
+    <b><%= question.body %></b>
+    <%= time_ago_in_words question.created_at %>
+    <%= link_to "Show", question %>
+  </li>
+<% end %>
+
+
+<%= render 'home/new_form' %>

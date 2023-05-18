@@ -1,0 +1,32 @@
+<h1><%= @question.body %></h1>
+
+<% unless @question.answers.nil? %>
+  <% @question.answers.each do |answer| %>
+    <div class="well well-sm">
+      <strong><%= answer.email %></strong>
+      <i><%= time_ago_in_words answer.created_at %></i>
+      <div>
+        <p class="lead"><%= answer.body %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+<div class="well well-md">
+  <form action="/questions/<%= @question.id %>/answers" method="post">
+    <input hidden name='question_id' value="<%= @question.id %>">
+    <div class="form-group ">
+      <label>Email</label>
+      <input type="text" class="form-control" placeholder="Email" name="email">
+    </div>
+    <div class="form-group">
+      <label>Answer</label>
+      <textarea rows="5" type="text" class="form-control" placeholder="Answer" name='body'>
+      </textarea>
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
